@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismDashboard", "Source\PrismDashboard\PrismDashboard.csproj", "{C1C2223A-0FE1-4DCA-8AB3-A95B28BF8850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESBInfrastructureLibrary", "Source\ESBInfrastructureLibrary\ESBInfrastructureLibrary.csproj", "{73E1B485-AA52-419A-9D8C-1249C08ED70F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{F89942F3-C1B5-41BF-8C94-1706E0DE6318}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{F6686D7B-9099-4974-8BC8-D965FD4B8148}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleA", "Source\Modules\ModuleA\ModuleA.csproj", "{B074B194-5EE7-4F9E-B871-5C1B3BCF6536}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1C2223A-0FE1-4DCA-8AB3-A95B28BF8850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1C2223A-0FE1-4DCA-8AB3-A95B28BF8850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1C2223A-0FE1-4DCA-8AB3-A95B28BF8850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1C2223A-0FE1-4DCA-8AB3-A95B28BF8850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73E1B485-AA52-419A-9D8C-1249C08ED70F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73E1B485-AA52-419A-9D8C-1249C08ED70F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73E1B485-AA52-419A-9D8C-1249C08ED70F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73E1B485-AA52-419A-9D8C-1249C08ED70F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B074B194-5EE7-4F9E-B871-5C1B3BCF6536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B074B194-5EE7-4F9E-B871-5C1B3BCF6536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B074B194-5EE7-4F9E-B871-5C1B3BCF6536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B074B194-5EE7-4F9E-B871-5C1B3BCF6536}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B074B194-5EE7-4F9E-B871-5C1B3BCF6536} = {F6686D7B-9099-4974-8BC8-D965FD4B8148}
+	EndGlobalSection
+EndGlobal
