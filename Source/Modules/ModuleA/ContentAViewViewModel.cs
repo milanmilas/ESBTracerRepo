@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ESBTracerDataAccess.Models;
+using System.Collections.ObjectModel;
 
 namespace ModuleA
 {
@@ -18,5 +20,7 @@ namespace ModuleA
         }
 
         public string Message { get; set; }
+
+        public ObservableCollection<Log> Logs { get; set; }
     }
 }

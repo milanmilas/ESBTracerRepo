@@ -7,6 +7,8 @@ using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 using ESBInfrastructureLibrary;
+using System.Collections.ObjectModel;
+using ESBTracerDataAccess.Models;
 
 namespace ModuleA
 {
@@ -30,15 +32,18 @@ namespace ModuleA
 
             var vm = _container.Resolve<IContentAViewModel>();
             vm.Message = "First View";
+            vm.Logs = new ObservableCollection<Log>() { new Log{LogId = 1, LogMessage = "Message1", Body = "Body1", Header = "Header1"},
+                                                        new Log{LogId = 2, LogMessage = "Message2", Body = "Body2", Header = "Header2"},
+                                                        };
             IRegion region = _regionManager.Regions[RegionNames.ContentRegion];
             region.Add(vm.View);
 
             //create second View
-            var vm2 = _container.Resolve<IContentAViewModel>();
-            vm2.Message = "Second View";
+            //var vm2 = _container.Resolve<IContentAViewModel>();
+            //vm2.Message = "Second View";
 
-            region.Deactivate(vm.View);
-            region.Add(vm2.View);
+            //region.Deactivate(vm.View);
+            //region.Add(vm2.View);
         }
     }
 }

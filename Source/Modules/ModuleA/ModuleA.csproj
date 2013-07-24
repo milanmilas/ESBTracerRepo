@@ -80,6 +80,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -100,6 +101,10 @@
     <ProjectReference Include="..\..\ESBInfrastructureLibrary\ESBInfrastructureLibrary.csproj">
       <Project>{73e1b485-aa52-419a-9d8c-1249c08ed70f}</Project>
       <Name>ESBInfrastructureLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ESBTracerDataAccess\ESBTracerDataAccess.csproj">
+      <Project>{8efaaf71-5c7b-4003-86b8-5086197ab33d}</Project>
+      <Name>ESBTracerDataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
