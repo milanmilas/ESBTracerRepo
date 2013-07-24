@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{F668
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleA", "Source\Modules\ModuleA\ModuleA.csproj", "{B074B194-5EE7-4F9E-B871-5C1B3BCF6536}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESBTracerDataAccess", "Source\ESBTracerDataAccess\ESBTracerDataAccess.csproj", "{8EFAAF71-5C7B-4003-86B8-5086197AB33D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{B074B194-5EE7-4F9E-B871-5C1B3BCF6536}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B074B194-5EE7-4F9E-B871-5C1B3BCF6536}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B074B194-5EE7-4F9E-B871-5C1B3BCF6536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EFAAF71-5C7B-4003-86B8-5086197AB33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EFAAF71-5C7B-4003-86B8-5086197AB33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EFAAF71-5C7B-4003-86B8-5086197AB33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EFAAF71-5C7B-4003-86B8-5086197AB33D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
