@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ESBInfrastructureLibrary;
 
 namespace ModuleA
 {
-    using ESBInfrastructureLibrary;
-
-    interface IToolbarAView : IView
+    public interface IToolbarAView : IView
     {
     }
 }

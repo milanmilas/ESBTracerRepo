@@ -11,5 +11,9 @@ namespace ESBInfrastructureLibrary
     public static class GlobalCommands
     {
         public static CompositeCommand RefreshCommand = new CompositeCommand();
+
+        public static CompositeCommand ClearLogsCommand = new CompositeCommand();
+
+        public static CompositeCommand AppendNewlyAddedCommand = new CompositeCommand();
     }
 }

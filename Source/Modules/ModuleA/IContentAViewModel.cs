@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace ModuleA
 {
+    using Microsoft.Practices.Prism.Commands;
+
     interface IContentAViewModel : IViewModel
     {
         string Message { get; set; }

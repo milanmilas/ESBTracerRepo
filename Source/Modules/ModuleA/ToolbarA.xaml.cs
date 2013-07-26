@@ -15,14 +15,28 @@ using System.Windows.Shapes;
 
 namespace ModuleA
 {
+    using ESBInfrastructureLibrary;
+
     /// <summary>
     /// Interaction logic for ToolbarView.xaml
     /// </summary>
-    public partial class ToolbarA : UserControl
+    public partial class ToolbarA : UserControl, IToolbarAView
     {
         public ToolbarA()
         {
             InitializeComponent();
+        }
+
+        public IViewModel ViewModel
+        {
+            get
+            {
+                return (IToolbarAViewViewModel)DataContext;
+            }
+            set
+            {
+                DataContext = value;
+            }
         }
     }
 }

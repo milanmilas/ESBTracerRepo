@@ -8,7 +8,12 @@ namespace ModuleA
 {
     using ESBInfrastructureLibrary;
 
+    using Microsoft.Practices.Prism.Commands;
+
     public interface IToolbarAViewViewModel : IViewModel
     {
+        DelegateCommand<object> StartStopRefreshingCommand { get; set; }
+
+        bool Recording { get; set; }
     }
 }

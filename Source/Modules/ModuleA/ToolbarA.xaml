@@ -6,5 +6,22 @@
              xmlns:inf="clr-namespace:ESBInfrastructureLibrary;assembly=ESBInfrastructureLibrary"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-        <Button Content="refresh" Command="{x:Static inf:GlobalCommands.RefreshCommand}"/>
+    <UserControl.Resources>
+        <Style x:Key="RefreshingButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Red"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Recording}" Value="true">
+                    <Setter Property="Background" Value="LimeGreen"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Orientation="Horizontal">
+        <Button Content="refresh" Command="{x:Static inf:GlobalCommands.RefreshCommand}" CommandParameter="{Binding ElementName=RefreshRecords, Path=Text}"/>
+        <TextBox Name="RefreshRecords">10</TextBox>
+        <Button Content="Clear" Command="{x:Static inf:GlobalCommands.ClearLogsCommand}" />
+        <Button Style="{StaticResource RefreshingButtonStyle}"  Name="StartStopRefreshing" Command="{Binding StartStopRefreshingCommand}"  CommandParameter="{Binding ElementName=RefreshTime, Path=Text}">Start\Stop Refreshing</Button>
+        <TextBox Name="RefreshTime">3</TextBox>
+    </StackPanel>
+
 </UserControl>

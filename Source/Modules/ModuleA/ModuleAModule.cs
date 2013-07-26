@@ -25,11 +25,19 @@ namespace ModuleA
 
         public void Initialize()
         {
-            _container.RegisterType<ToolbarA>();
+            /*_container.RegisterType<ToolbarA>();*/
+            _container.RegisterType<IToolbarAView, ToolbarA>();
+            _container.RegisterType<IToolbarAViewViewModel, ToolbarAViewViewModel>();
+
             _container.RegisterType<IContentAView, ContentA>();
             _container.RegisterType<IContentAViewModel, ContentAViewViewModel >();
-            _container.RegisterType<IContentAViewModel, ContentAViewViewModel>();
-            _regionManager.RegisterViewWithRegion(RegionNames.ToolbarRegion, typeof(ToolbarA));
+/*            _container.RegisterType<IContentAViewModel, ContentAViewViewModel>();*/
+            /*_regionManager.RegisterViewWithRegion(RegionNames.ToolbarRegion, typeof(ToolbarA));*/
+
+            var vmT = _container.Resolve<IToolbarAViewViewModel>();
+
+            IRegion regionT = _regionManager.Regions[RegionNames.ToolbarRegion];
+            regionT.Add(vmT.View);
 
             var vm = _container.Resolve<IContentAViewModel>();
             vm.Message = "First View";

@@ -6,8 +6,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <DataGrid ItemsSource="{Binding Logs}" FontSize="12">
-            
+        <DataGrid ItemsSource="{Binding Logs}" FontSize="12" RowHeight="20">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property = "Background" Value="LimeGreen"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding LogMessage}" Value="Exception has occured">
+                            <Setter Property = "Background" Value="Red"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+
+                </Style>
+            </DataGrid.Resources>
         </DataGrid>
     </Grid>
 </UserControl>
