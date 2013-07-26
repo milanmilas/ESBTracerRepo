@@ -69,6 +69,7 @@
     <Compile Include="IToolbarAView.cs" />
     <Compile Include="IToolbarAViewViewModel.cs" />
     <Compile Include="ModuleAModule.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

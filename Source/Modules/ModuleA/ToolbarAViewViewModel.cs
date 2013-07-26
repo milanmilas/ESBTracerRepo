@@ -4,16 +4,31 @@ using Microsoft.Practices.Prism.Commands;
 namespace ModuleA
 {
     using System;
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
     using System.Threading;
     using System.Timers;
 
+    using ModuleA.Annotations;
+
     using Timer = System.Timers.Timer;
 
-    public class ToolbarAViewViewModel : IToolbarAViewViewModel
+    public class ToolbarAViewViewModel : IToolbarAViewViewModel, INotifyPropertyChanged
     {
         public IView View { get; set; }
 
-        public bool Recording { get; set; }
+        private bool recording;
+
+        public bool Recording {
+            get
+            {
+                return recording;}
+            set
+            {
+                recording = value;
+                this.OnPropertyChanged("Recording");
+            }
+        }
 
         public DelegateCommand<object> StartStopRefreshingCommand { get; set; }
 
@@ -59,5 +74,16 @@ namespace ModuleA
             GlobalCommands.AppendNewlyAddedCommand.RegisteredCommands[0].Execute(null);
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }
