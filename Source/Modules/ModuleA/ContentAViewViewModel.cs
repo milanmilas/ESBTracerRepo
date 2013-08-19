@@ -22,10 +22,16 @@ namespace ModuleA
 
         private int maxLodId = 0;
 
-        public ContentAViewViewModel(IContentAView view)
+        IRepository<Log> logRepository;
+
+        public ContentAViewViewModel(IContentAView view, IRepository<Log> repository)
         {
             View = view;
             View.ViewModel = this;
+
+            logRepository = repository;
+
+            Logs = new ObservableCollection<Log>();
 
             Refresh = new DelegateCommand<object>(RefreshLogsMethod);
 
@@ -42,7 +48,7 @@ namespace ModuleA
 
         public ObservableCollection<Log> Logs { get; set; }
 
-        public AllocatesoftwareTranslatorRepositoryTranslatorDbContextContext ctx { get; set; }
+        //public AllocatesoftwareTranslatorRepositoryTranslatorDbContextContext ctx { get; set; }
 
         public DelegateCommand<object> Refresh { get; set; }
 
@@ -53,7 +59,7 @@ namespace ModuleA
         private void RefreshLogsMethod(object numRecords)
         {
             this.ClearLogsMethod();
-            ctx.Logs.OrderByDescending(x => x.LogId).Take(int.Parse(numRecords.ToString())).ToList().ForEach(x => Logs.Add(x));
+            logRepository.Fetch().OrderByDescending(x => x.LogId).Take(int.Parse(numRecords.ToString())).ToList().ForEach(x => Logs.Add(x));
         }
 
         private void ClearLogsMethod()
@@ -64,9 +70,9 @@ namespace ModuleA
 
         private void AppendNewlyAddedLogsMehod()
         {
-            if (maxLodId == 0) maxLodId = ctx.Logs.Max(x => x.LogId);
+            if (maxLodId == 0) maxLodId = logRepository.Fetch().Max(x => x.LogId);
 
-            var logs = ctx.Logs.Where(x => x.LogId > maxLodId).OrderBy(x => x.LogId).ToList();
+            var logs = logRepository.Fetch().Where(x => x.LogId > maxLodId).OrderBy(x => x.LogId).ToList();
 
             if (logs.Count > 0) maxLodId = logs.Max(i => i.LogId);
 

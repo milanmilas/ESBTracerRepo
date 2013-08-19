@@ -15,7 +15,5 @@ namespace ModuleA
     {
         string Message { get; set; }
         ObservableCollection<Log> Logs { get; set; }
-
-        AllocatesoftwareTranslatorRepositoryTranslatorDbContextContext ctx { get; set; }
     }
 }

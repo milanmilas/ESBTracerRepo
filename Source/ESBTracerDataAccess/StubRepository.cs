@@ -2,49 +2,50 @@
 using ESBTracerDataAccess.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ESBTracerDataAccess
 {
-    public class EFRepository<T> : IRepository<T>  where T : class
+    public class StubRepository<T> : IRepository<T>  where T : class
     {
-        readonly DbContext _context;
+        readonly IList<T> _context;
 
-        public EFRepository(DbContext context){
+        public StubRepository(IList<T> context){
             _context = context;
         }
 
         public IQueryable<T> Fetch()
         {
-            return _context.Set<T>();
+            return _context.AsQueryable<T>();
         }
 
         public IEnumerable<T> GetAll()
         {
-            return _context.Set<T>();
+            return _context;
         }
 
         public IEnumerable<T> Find(Func<T, bool> predicate)
         {
-            return _context.Set<T>().Where(predicate);
+            return _context.Where(predicate);
         }
 
         public T Single(Func<T, bool> predicate)
         {
-            return _context.Set<T>().Where(predicate).Single();
+            return _context.Where(predicate).Single();
         }
 
         public T First(Func<T, bool> predicate)
         {
-            return _context.Set<T>().Where(predicate).FirstOrDefault();
+            return _context.Where(predicate).FirstOrDefault();
         }
+
 
         public void Dispose()
         {
             throw new NotImplementedException();
         }
+
     }
 }
