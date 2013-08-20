@@ -38,16 +38,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.Prism">
-      <HintPath>..\..\Library\Microsoft.Practices.Prism.dll</HintPath>
+      <HintPath>..\Libs\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Prism.UnityExtensions">
-      <HintPath>..\..\Library\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
+      <HintPath>..\Libs\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>..\..\Libs\Prism v4\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <HintPath>..\Libs\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity">
-      <HintPath>..\..\Library\Microsoft.Practices.Unity.dll</HintPath>
+      <HintPath>..\Libs\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
