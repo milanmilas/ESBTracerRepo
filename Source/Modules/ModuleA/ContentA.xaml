@@ -15,9 +15,35 @@
                             <Setter Property = "Background" Value="Red"/>
                         </DataTrigger>
                     </Style.Triggers>
-
-                </Style>
+                 </Style>
             </DataGrid.Resources>
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="MaxWidth" Value="250"/>
+                    <Setter Property="ToolTipService.ShowDuration" Value="12000"/>
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <StackPanel MaxWidth="1000" CanVerticallyScroll="True">
+                                <StackPanel.Resources>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <TextBox Text="RouteId:" Background="DeepSkyBlue"></TextBox>
+                                <TextBox Text="{Binding Path=RouteId}"></TextBox>
+                                <TextBox Text="Header:" Background="Yellow"></TextBox>
+                                <TextBox Text="{Binding Path=Header}" MaxHeight="500"></TextBox>
+                                <TextBox Text="Body:" Background="PaleGreen"></TextBox>
+                                <TextBox Text="{Binding Path=Body}"></TextBox>
+                                <TextBox Text="ExceptionMessage:" Background="Orange"></TextBox>
+                                <TextBox Text="{Binding Path=ExceptionMessage}"></TextBox>
+                                <TextBox Text="ExceptionStackTrace:" Background="OrangeRed"></TextBox>
+                                <TextBox Text="{Binding Path=ExceptionStackTrace}"></TextBox>
+                            </StackPanel>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.CellStyle>
         </DataGrid>
     </Grid>
 </UserControl>

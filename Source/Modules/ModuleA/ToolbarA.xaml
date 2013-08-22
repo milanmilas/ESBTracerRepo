@@ -5,9 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:inf="clr-namespace:ESBInfrastructureLibrary;assembly=ESBInfrastructureLibrary"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="50" d:DesignWidth="800">
     <UserControl.Resources>
         <Style x:Key="RefreshingButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5,5,5,5"></Setter>
+            <Setter Property="FontSize" Value="25"></Setter>
             <Setter Property="Background" Value="Red"></Setter>
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Recording}" Value="true">
@@ -16,12 +18,47 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
-    <StackPanel Orientation="Horizontal">
-        <Button Content="refresh" Command="{x:Static inf:GlobalCommands.RefreshCommand}" CommandParameter="{Binding ElementName=RefreshRecords, Path=Text}"/>
-        <TextBox Name="RefreshRecords">10</TextBox>
+    <StackPanel Orientation="Horizontal" >
+        <StackPanel.Resources>
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="Margin" Value="5,5,5,5"></Setter>
+                <Setter Property="MinWidth" Value="60"></Setter>
+                <Setter Property="FontSize" Value="25"></Setter>
+            </Style>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Margin" Value="5,5,5,5"></Setter>
+                <Setter Property="FontSize" Value="25"></Setter>
+            </Style>
+        </StackPanel.Resources>
+        <Button Content="Refresh" Command="{x:Static inf:GlobalCommands.RefreshCommand}" CommandParameter="{Binding ElementName=RefreshRecords, Path=Text}"/>
+        <TextBox Name="RefreshRecords" FontSize="25"  Text="{Binding  Path=RefreshRecordsNum}">
+            <!--<TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Text" Value="{Binding  Path=RefreshRecordsNum, StringFormat=\{0:c\}records}"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelectionActive" Value="True">
+                            <Setter Property="Text" Value="{Binding  Path=RefreshRecordsNum, UpdateSourceTrigger=PropertyChanged}" />
+                            <Setter Property="Background" Value="LightCyan"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>-->
+        </TextBox>
         <Button Content="Clear" Command="{x:Static inf:GlobalCommands.ClearLogsCommand}" />
         <Button Style="{StaticResource RefreshingButtonStyle}"  Name="StartStopRefreshing" Command="{Binding StartStopRefreshingCommand}"  CommandParameter="{Binding ElementName=RefreshTime, Path=Text}">Start\Stop Refreshing</Button>
-        <TextBox Name="RefreshTime">3</TextBox>
+        <TextBox Name="RefreshTime" FontSize="25" Text="{Binding  Path=RefreshSeconds}">
+            <!--<TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Text" Value="{Binding  Path=RefreshSeconds, StringFormat=\{0:c\}sec}"/>
+                    <Style.Triggers>
+                        <Trigger Property="Control.IsFocused" Value="True">
+                            <Setter Property="Text" Value="{Binding  Path=RefreshSeconds}" />
+                            <Setter Property="Background" Value="LightCyan"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>-->
+        </TextBox>
     </StackPanel>
 
 </UserControl>

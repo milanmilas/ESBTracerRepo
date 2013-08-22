@@ -17,6 +17,11 @@ namespace ModuleA
     {
         public IView View { get; set; }
 
+        public String RefreshRecordsNum { get; set; }
+
+        public String RefreshSeconds { get; set; }
+        
+
         private bool recording;
 
         public bool Recording {
@@ -38,6 +43,9 @@ namespace ModuleA
         {
             View = view;
             view.ViewModel = this;
+
+            RefreshRecordsNum = "10";
+            RefreshSeconds = "3";
 
             StartStopRefreshingCommand = new DelegateCommand<object>(StartRecording);
         }
