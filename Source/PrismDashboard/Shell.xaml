@@ -7,6 +7,8 @@
     <DockPanel LastChildFill="True">
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" 
                         prism:RegionManager.RegionName="{x:Static inf:RegionNames.ToolbarRegion}" />
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" 
+                        prism:RegionManager.RegionName="{x:Static inf:RegionNames.FilterRegion}" />
         <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ContentRegion}" />
     </DockPanel>
 </Window>

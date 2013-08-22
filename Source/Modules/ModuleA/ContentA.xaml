@@ -23,7 +23,7 @@
                     <Setter Property="ToolTipService.ShowDuration" Value="12000"/>
                     <Setter Property="ToolTip">
                         <Setter.Value>
-                            <StackPanel MaxWidth="1000" CanVerticallyScroll="True">
+                            <StackPanel MaxWidth="1400" CanVerticallyScroll="True">
                                 <StackPanel.Resources>
                                     <Style TargetType="TextBox">
                                         <Setter Property="TextWrapping" Value="Wrap"></Setter>

@@ -58,12 +58,12 @@ namespace ModuleA
             IRegion region = _regionManager.Regions[RegionNames.ContentRegion];
             region.Add(vm.View);
 
-
+            _regionManager.AddToRegion(RegionNames.FilterRegion, new FilterA());
         }
 
         private List<Log> GetFakeLogList()
         {
-            return new List<Log>() { new Log{LogId = 1, LogMessage = "Message1", Body = "Body1", Header = "Header1"},
+            return new List<Log>() { new Log{LogId = 134246, LogMessage = "Exception has occured", Body = "Body1", Header = "Header1"},
                                                         new Log{LogId = 2, LogMessage = "Message2", Body = "Body2", Header = "Header2"},
                                                         };
 /*
