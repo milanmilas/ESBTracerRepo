@@ -27,6 +27,8 @@ namespace ModuleA
 
         public void Initialize()
         {
+            _container.RegisterType<ICompositeFilterService, CompositeFilterService>();
+
             _container.RegisterType<IToolbarAView, ToolbarA>();
             _container.RegisterType<IToolbarAViewViewModel, ToolbarAViewViewModel>();
 

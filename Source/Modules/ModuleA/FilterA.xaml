@@ -25,10 +25,10 @@
         <Expander Header="Filter" FontSize="20" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="5" Grid.ColumnSpan="5" >
             <Grid Background="#FFE5E5E5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="85*"/>
-                    <ColumnDefinition Width="80*"/>
-                    <ColumnDefinition Width="85*"/>
-                    <ColumnDefinition Width="99*"/>
+                    <ColumnDefinition Width="170*"/>
+                    <ColumnDefinition Width="160*"/>
+                    <ColumnDefinition Width="35*"/>
+                    <ColumnDefinition Width="333*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="39*"/>
@@ -36,9 +36,10 @@
                     <RowDefinition Height="40*"/>
                     <RowDefinition Height="58*"/>
                 </Grid.RowDefinitions>
-                <wpfTool:DateTimePicker/>
-
-
+                <TextBlock Text="Date Occured:" Grid.Row="0" Grid.Column="0"/>
+                <wpfTool:DateTimePicker  Grid.Row="0" Grid.Column="1"/>
+                <TextBlock Text="to" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"/>
+                <wpfTool:DateTimePicker  Grid.Row="0" Grid.Column="3"/>
             </Grid>
         </Expander>
 

@@ -15,14 +15,28 @@ using System.Windows.Shapes;
 
 namespace ModuleA
 {
+    using ESBInfrastructureLibrary;
+
     /// <summary>
     /// Interaction logic for FilterA.xaml
     /// </summary>
-    public partial class FilterA : UserControl
+    public partial class FilterA : IFilterA
     {
         public FilterA()
         {
             InitializeComponent();
+        }
+
+        public IViewModel ViewModel
+        {
+            get
+            {
+                return (IFilterAViewViewModel)DataContext;
+            }
+            set
+            {
+                DataContext = value;
+            }
         }
     }
 }

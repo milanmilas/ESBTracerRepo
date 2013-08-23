@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalCommands.cs" />
+    <Compile Include="IFilterableService.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="IView.cs" />
     <Compile Include="IViewModel.cs" />

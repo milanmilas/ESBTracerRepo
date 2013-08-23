@@ -51,12 +51,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Controls.Input.Toolkit">
-      <HintPath>..\..\..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Input.Toolkit.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Windows.Controls.Layout.Toolkit">
-      <HintPath>..\..\..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -94,19 +88,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilterAViewViewModel.cs" />
+    <Compile Include="CompositeFilterService.cs" />
     <Compile Include="ContentA.xaml.cs">
       <DependentUpon>ContentA.xaml</DependentUpon>
     </Compile>
     <Compile Include="ContentAViewViewModel.cs" />
+    <Compile Include="IFilterA.cs" />
     <Compile Include="FilterA.xaml.cs">
       <DependentUpon>FilterA.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ICompositeFilterService.cs" />
     <Compile Include="IContentAViewModel.cs" />
     <Compile Include="IContentAView.cs" />
+    <Compile Include="IFilterAViewViewModel.cs" />
     <Compile Include="IToolbarAView.cs" />
     <Compile Include="IToolbarAViewViewModel.cs" />
     <Compile Include="ModuleAModule.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
