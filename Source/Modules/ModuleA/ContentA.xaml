@@ -6,16 +6,37 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <DataGrid ItemsSource="{Binding Logs}" FontSize="12" RowHeight="20">
+        <DataGrid ItemsSource="{Binding Logs}" FontSize="12" RowHeight="20" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridRow}">
-                    <Setter Property = "Background" Value="LimeGreen"/>
+                    <Setter Property ="Background" Value="LimeGreen"/>
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding LogMessage}" Value="Exception has occured">
-                            <Setter Property = "Background" Value="Red"/>
+                            <Setter Property = "Background" Value="OrangeRed"/>
                         </DataTrigger>
+                        <DataTrigger Binding="{Binding TagData}" Value="1">
+                            <DataTrigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetProperty= "(DataGridRow.Background).(SolidColorBrush.Color)" 
+                                                    Duration="00:00:01" 
+                                                    From="Transparent"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                        <!--<EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetProperty=
+                              "(DataGridRow.Background).(SolidColorBrush.Color)" 
+                                             Duration="00:00:01" 
+                                             From="Transparent"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>-->
                     </Style.Triggers>
-                 </Style>
+                </Style>
             </DataGrid.Resources>
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">

@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 namespace ModuleA
 {
     using ESBInfrastructureLibrary;
+    using System.Linq.Expressions;
 
     public interface ICompositeFilterService
     {
         void RegisterFilter<T>(IFilterableService<T> querableFilter);
 
-        List<Object> GetFilter<T>();
+        List<IFilterableService<T>> GetFilter<T>();
     }
 }

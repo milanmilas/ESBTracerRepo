@@ -4,11 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:inf="clr-namespace:ESBInfrastructureLibrary;assembly=ESBInfrastructureLibrary"
+             xmlns:conv="clr-namespace:ModuleA.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="800">
     <UserControl.Resources>
+        <conv:SubstringValueFormater x:Key="SubstringConverter"/>
         <Style x:Key="RefreshingButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="5,5,5,5"></Setter>
+            <Setter Property="Padding" Value="5,0,5,5"></Setter>
             <Setter Property="FontSize" Value="25"></Setter>
             <Setter Property="Background" Value="Red"></Setter>
             <Style.Triggers>
@@ -27,29 +30,29 @@
             </Style>
             <Style TargetType="{x:Type Button}">
                 <Setter Property="Margin" Value="5,5,5,5"></Setter>
+                <Setter Property="Padding" Value="5,0,5,5"></Setter>
                 <Setter Property="FontSize" Value="25"></Setter>
             </Style>
         </StackPanel.Resources>
-        <Button Content="Refresh" Command="{x:Static inf:GlobalCommands.RefreshCommand}" CommandParameter="{Binding ElementName=RefreshRecords, Path=Text}"/>
-        <TextBox Name="RefreshRecords" FontSize="25"  Text="{Binding  Path=RefreshRecordsNum}">
-            <!--<TextBox.Style>
+        <Button Content="Refresh" Command="{x:Static inf:GlobalCommands.RefreshCommand}" CommandParameter="{Binding ElementName=RefreshRecords, Path=Text, Converter={StaticResource SubstringConverter}, ConverterParameter=-7}" Background="LightBlue"/>
+        <TextBox Name="RefreshRecords" FontSize="25" MinWidth="150" Margin="5,5,5,5">
+            <TextBox.Style>
                 <Style TargetType="TextBox">
                     <Setter Property="Text" Value="{Binding  Path=RefreshRecordsNum, StringFormat=\{0:c\}records}"/>
                     <Style.Triggers>
-                        <Trigger Property="IsSelectionActive" Value="True">
+                        <Trigger Property="IsFocused" Value="True">
                             <Setter Property="Text" Value="{Binding  Path=RefreshRecordsNum, UpdateSourceTrigger=PropertyChanged}" />
                             <Setter Property="Background" Value="LightCyan"></Setter>
                         </Trigger>
                     </Style.Triggers>
                 </Style>
-            </TextBox.Style>-->
+            </TextBox.Style>
         </TextBox>
-        <Button Content="Clear" Command="{x:Static inf:GlobalCommands.ClearLogsCommand}" />
-        <Button Style="{StaticResource RefreshingButtonStyle}"  Name="StartStopRefreshing" Command="{Binding StartStopRefreshingCommand}"  CommandParameter="{Binding ElementName=RefreshTime, Path=Text}">Start\Stop Refreshing</Button>
-        <TextBox Name="RefreshTime" FontSize="25" Text="{Binding  Path=RefreshSeconds}">
-            <!--<TextBox.Style>
+        <Button Style="{StaticResource RefreshingButtonStyle}"  Name="StartStopRefreshing" Command="{Binding StartStopRefreshingCommand}"  CommandParameter="{Binding ElementName=RefreshTime, Path=Text, Converter={StaticResource SubstringConverter}, ConverterParameter=-7}">Start\Stop Refreshing</Button>
+        <TextBox Name="RefreshTime" FontSize="25" MinWidth="150" Margin="5,5,5,5" >
+            <TextBox.Style>
                 <Style TargetType="TextBox">
-                    <Setter Property="Text" Value="{Binding  Path=RefreshSeconds, StringFormat=\{0:c\}sec}"/>
+                    <Setter Property="Text" Value="{Binding  Path=RefreshSeconds, StringFormat=\{0:c\}seconds}"/>
                     <Style.Triggers>
                         <Trigger Property="Control.IsFocused" Value="True">
                             <Setter Property="Text" Value="{Binding  Path=RefreshSeconds}" />
@@ -57,8 +60,9 @@
                         </Trigger>
                     </Style.Triggers>
                 </Style>
-            </TextBox.Style>-->
+            </TextBox.Style>
         </TextBox>
+        <Button Content="Clear" Command="{x:Static inf:GlobalCommands.ClearLogsCommand}" />
     </StackPanel>
 
 </UserControl>

@@ -4,11 +4,19 @@
         xmlns:prism="http://www.codeplex.com/prism"
         xmlns:inf="clr-namespace:ESBInfrastructureLibrary;assembly=ESBInfrastructureLibrary"
         Title="Shell" >
-    <DockPanel LastChildFill="True">
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" 
-                        prism:RegionManager.RegionName="{x:Static inf:RegionNames.ToolbarRegion}" />
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" 
-                        prism:RegionManager.RegionName="{x:Static inf:RegionNames.FilterRegion}" />
-        <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ContentRegion}" />
+    <DockPanel>
+        <TabControl DockPanel.Dock="Top">
+            <TabItem Header="Events" FontSize="18">
+                <DockPanel LastChildFill="True">
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" 
+                                    prism:RegionManager.RegionName="{x:Static inf:RegionNames.ToolbarRegion}" />
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" 
+                                    prism:RegionManager.RegionName="{x:Static inf:RegionNames.FilterRegion}" />
+                    <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ContentRegion}" />
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Statistics" FontSize="18">
+            </TabItem>
+        </TabControl>
     </DockPanel>
 </Window>

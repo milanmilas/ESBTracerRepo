@@ -9,9 +9,6 @@ using System.Collections.ObjectModel;
 
 namespace ModuleA
 {
-/*    using System.Threading;
-    using System.Windows.Threading;*/
-
     using System.Windows.Threading;
 
     using Microsoft.Practices.Prism.Commands;
@@ -24,14 +21,17 @@ namespace ModuleA
 
         IRepository<Log> logRepository;
 
-        public ContentAViewViewModel(IContentAView view, IRepository<Log> repository)
+        ICompositeFilterService FilterService { get; set; }
+
+        public ContentAViewViewModel(IContentAView view, IRepository<Log> repository, ICompositeFilterService filterService)
         {
             View = view;
             View.ViewModel = this;
 
             logRepository = repository;
+            FilterService = filterService;
 
-            Logs = new ObservableCollection<Log>();
+            Logs = new ObservableCollection<LogViewModel>();
 
             Refresh = new DelegateCommand<object>(RefreshLogsMethod);
 
@@ -46,7 +46,7 @@ namespace ModuleA
 
         public string Message { get; set; }
 
-        public ObservableCollection<Log> Logs { get; set; }
+        public ObservableCollection<LogViewModel> Logs { get; set; }
 
         //public AllocatesoftwareTranslatorRepositoryTranslatorDbContextContext ctx { get; set; }
 
@@ -59,7 +59,16 @@ namespace ModuleA
         private void RefreshLogsMethod(object numRecords)
         {
             this.ClearLogsMethod();
-            logRepository.Fetch().OrderByDescending(x => x.LogId).Take(int.Parse(numRecords.ToString())).ToList().ForEach(x => Logs.Add(x));
+
+            IQueryable<Log> query = logRepository.Fetch();
+            List<IFilterableService<Log>> filter = FilterService.GetFilter<Log>();
+            foreach (var filterService in filter)
+            {
+                query = query.Where<Log>(filterService.GetFilter());
+            }
+
+            List<Log> logList = query.OrderByDescending(x => x.LogId).Take(int.Parse(numRecords.ToString())).ToList();
+            logList.ForEach(l => Logs.Add(new LogViewModel(l)));
         }
 
         private void ClearLogsMethod()
@@ -70,16 +79,22 @@ namespace ModuleA
 
         private void AppendNewlyAddedLogsMehod()
         {
-            if (maxLodId == 0) maxLodId = logRepository.Fetch().Max(x => x.LogId);
+            //if (maxLodId == 0) maxLodId = logRepository.Fetch().Max(x => x.LogId);
 
             var logs = logRepository.Fetch().Where(x => x.LogId > maxLodId).OrderBy(x => x.LogId).ToList();
 
             if (logs.Count > 0) maxLodId = logs.Max(i => i.LogId);
 
+            foreach (var item in Logs)
+            {
+                item.TagData = "0";
+            }
+
             foreach (var log in logs)
             {
-                Logs.Add(log);
-                Logs.Move(Logs.IndexOf(log), 0);
+                LogViewModel logViewModel = new LogViewModel(log);
+                Logs.Insert(0, logViewModel);
+                logViewModel.TagData = "1";
             }
         }
     }

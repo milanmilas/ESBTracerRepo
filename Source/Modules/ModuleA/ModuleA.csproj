@@ -88,6 +88,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\SubstringValueFormater.cs" />
     <Compile Include="FilterAViewViewModel.cs" />
     <Compile Include="CompositeFilterService.cs" />
     <Compile Include="ContentA.xaml.cs">
@@ -104,9 +105,10 @@
     <Compile Include="IFilterAViewViewModel.cs" />
     <Compile Include="IToolbarAView.cs" />
     <Compile Include="IToolbarAViewViewModel.cs" />
+    <Compile Include="LogViewModel.cs" />
     <Compile Include="ModuleAModule.cs" />
+    <Compile Include="PredicateBuilder.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

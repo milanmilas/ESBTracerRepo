@@ -12,24 +12,71 @@ namespace ModuleA
     using ESBInfrastructureLibrary;
 
     using ESBTracerDataAccess.Models;
+    using Microsoft.Practices.Prism.Commands;
 
     class FilterAViewViewModel : IFilterAViewViewModel, INotifyPropertyChanged, IFilterableService<Log>
     {
         public IView View { get; set; }
 
+        private bool dateFilter;
+
+        public bool DateFilter
+        {
+            get { return dateFilter; }
+            set { dateFilter = value; this.OnPropertyChanged("DateFilter"); }
+        }
+
+        private DateTime dateFrom;
+
+        public DateTime DateFrom
+        {
+            get { return dateFrom; }
+            set { dateFrom = value; this.OnPropertyChanged("DateFrom"); }
+        }
+
+
+        private DateTime dateTo;
+
+        public DateTime DateTo
+        {
+            get { return dateTo; }
+            set { dateTo = value; this.OnPropertyChanged("DateTo"); }
+        }
+
+        private bool exceptionFilter;
+
+        public bool ExceptionFilter
+        {
+            get { return exceptionFilter; }
+            set { exceptionFilter = value; this.OnPropertyChanged("ExceptionFilter"); }
+        }
+        
+
         public ICompositeFilterService FilterService { get; set; }
+
+        public DelegateCommand ClearFiltersCommand { get; set; }
 
         public FilterAViewViewModel(IFilterA view)
         {
             View = view;
             view.ViewModel = this;
+            DateFrom = DateTime.Today;
+            DateTo = DateTime.Now;
+
+            ClearFiltersCommand = new DelegateCommand(ClearFilters);
         }
 
         public FilterAViewViewModel(IFilterA view, ICompositeFilterService filterService)
+            : this(view)
         {
-            View = view;
-            view.ViewModel = this;
             FilterService = filterService;
+            filterService.RegisterFilter<Log>(this);
+        }
+
+        private void ClearFilters()
+        {
+            DateFilter = false;
+            ExceptionFilter = false;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -43,11 +90,23 @@ namespace ModuleA
             }
         }
 
-        public IQueryable<Log> GetFilter()
-        {
-            Func<Log, bool> deleg = l => l.LogId > 10;
 
-            return new EnumerableQuery<Log>(deleg);
+        public System.Linq.Expressions.Expression<Func<Log, bool>> GetFilter()
+        {
+            System.Linq.Expressions.Expression<Func<Log, bool>> func = l => true;
+            if (dateFilter)
+            {
+                System.Linq.Expressions.Expression<Func<Log, bool>> func2 = l => l.DatePersisted >= this.DateFrom && l.DatePersisted <= this.DateFrom;
+
+                func = PredicateBuilder.And(func, func2);
+            }
+            if (exceptionFilter)
+            {
+                System.Linq.Expressions.Expression<Func<Log, bool>> func2 = l => l.LogMessage != null && l.LogMessage.Equals("Exception has occured");
+
+                func = PredicateBuilder.And(func, func2);
+            }
+            return func;
         }
     }
 }

@@ -17,10 +17,33 @@ namespace ModuleA
     {
         public IView View { get; set; }
 
-        public String RefreshRecordsNum { get; set; }
+        private String refreshRecordsNum;
 
-        public String RefreshSeconds { get; set; }
-        
+        public String RefreshRecordsNum { 
+            get { 
+                return refreshRecordsNum;
+            }
+            set
+            {
+                refreshRecordsNum = value;
+                this.OnPropertyChanged("RefreshRecordsNum");
+            }
+        }
+
+        private String refreshSeconds;
+
+        public String RefreshSeconds
+        {
+            get
+            {
+                return refreshSeconds;
+            }
+            set
+            {
+                refreshSeconds = value;
+                this.OnPropertyChanged("RefreshSeconds");
+            }
+        }        
 
         private bool recording;
 

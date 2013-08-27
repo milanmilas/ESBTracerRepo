@@ -70,6 +70,9 @@
     <Reference Include="Microsoft.Practices.Unity">
       <HintPath>..\Libs\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
+    <Reference Include="ReuxablesLegacy">
+      <HintPath>..\Libs\ReuxablesLegacy.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />

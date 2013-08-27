@@ -5,43 +5,49 @@
              xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="700">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="140*"/>
-            <ColumnDefinition Width="144*"/>
-            <ColumnDefinition Width="142*"/>
-            <ColumnDefinition Width="133*"/>
-            <ColumnDefinition Width="141*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="66*"/>
-            <RowDefinition Height="38*"/>
-            <RowDefinition Height="33*"/>
-            <RowDefinition Height="29*"/>
-            <RowDefinition Height="34*"/>
-        </Grid.RowDefinitions>
-
-        <Expander Header="Filter" FontSize="20" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="5" Grid.ColumnSpan="5" >
-            <Grid Background="#FFE5E5E5">
+             d:DesignHeight="150" d:DesignWidth="700">
+    <Grid Margin="5">
+        <Expander Header="Refresh Filter" FontSize="20" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="5" Grid.ColumnSpan="5" Background="LightBlue">
+            <Grid Background="Transparent">
+                <Grid.Resources>
+                    <Style x:Key="Margins" TargetType="Control">
+                        <Setter Property="Margin" Value="5,5,5,5"/>
+                    </Style>
+                    <Style x:Key="TextBlockMargins" TargetType="TextBlock">
+                        <Setter Property="Margin" Value="5,5,5,5"/>
+                    </Style>
+                    <Style TargetType="CheckBox">
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+                </Grid.Resources>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="170*"/>
-                    <ColumnDefinition Width="160*"/>
+                    <ColumnDefinition Width="31*"/>
+                    <ColumnDefinition Width="139*"/>
+                    <ColumnDefinition Width="200*"/>
                     <ColumnDefinition Width="35*"/>
-                    <ColumnDefinition Width="333*"/>
+                    <ColumnDefinition Width="200*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="39*"/>
-                    <RowDefinition Height="32*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="58*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Date Occured:" Grid.Row="0" Grid.Column="0"/>
-                <wpfTool:DateTimePicker  Grid.Row="0" Grid.Column="1"/>
-                <TextBlock Text="to" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"/>
-                <wpfTool:DateTimePicker  Grid.Row="0" Grid.Column="3"/>
+                <CheckBox x:Name="DateFilter" Margin="10" IsChecked="{Binding DateFilter}" />
+                <TextBlock Style="{StaticResource TextBlockMargins}" Text="Date Occured:" Grid.Row="0" Grid.Column="1" Margin="0,5,5,5"/>
+                <wpfTool:DateTimePicker Style="{StaticResource Margins}" 
+                                        Grid.Row="0" Grid.Column="2" 
+                                        Value="{Binding DateFrom}" 
+                                        IsEnabled="{Binding ElementName=DateFilter, Path=IsChecked}"/>
+                <TextBlock Style="{StaticResource TextBlockMargins}" Text="to" Grid.Row="0" Grid.Column="3" />
+                <wpfTool:DateTimePicker Style="{StaticResource Margins}" 
+                                        Grid.Row="0" Grid.Column="4" 
+                                        Value="{Binding DateTo}"
+                                        IsEnabled="{Binding ElementName=DateFilter, Path=IsChecked}"/>
+                <TextBlock Style="{StaticResource TextBlockMargins}" Text="Exception Event" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" />
+                <CheckBox x:Name="ExceptionFilter"  Grid.Row="1" Grid.Column="0" Margin="10" IsChecked="{Binding ExceptionFilter}"/>
+                <Button x:Name="ClearFilter" Grid.Row="2" Grid.Column="4" Margin="5" Command="{Binding ClearFiltersCommand}">Clear Filters</Button>
             </Grid>
         </Expander>
-
     </Grid>
 </UserControl>

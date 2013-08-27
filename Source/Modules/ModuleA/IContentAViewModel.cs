@@ -14,6 +14,6 @@ namespace ModuleA
     interface IContentAViewModel : IViewModel
     {
         string Message { get; set; }
-        ObservableCollection<Log> Logs { get; set; }
+        ObservableCollection<LogViewModel> Logs { get; set; }
     }
 }
