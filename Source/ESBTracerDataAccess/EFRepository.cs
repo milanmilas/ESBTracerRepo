@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace ESBTracerDataAccess
 {
+    using LinqKit;
+
     public class EFRepository<T> : IRepository<T>  where T : class
     {
         readonly DbContext _context;
@@ -19,7 +21,7 @@ namespace ESBTracerDataAccess
 
         public IQueryable<T> Fetch()
         {
-            return _context.Set<T>();
+            return _context.Set<T>().AsExpandable();
         }
 
         public IEnumerable<T> GetAll()

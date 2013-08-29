@@ -37,12 +37,12 @@ namespace ModuleA
             _container.RegisterType<IContentAView, ContentA>();
             _container.RegisterType<IContentAViewModel, ContentAViewViewModel >();
 
-            //_container.RegisterType<DbContext, AllocatesoftwareTranslatorRepositoryTranslatorDbContextContext>();
-            //_container.RegisterType<IRepository<Log>, EFRepository<Log>>();
+            _container.RegisterType<DbContext, AllocatesoftwareTranslatorRepositoryTranslatorDbContextContext>();
+            _container.RegisterType<IRepository<Log>, EFRepository<Log>>();
 
-            _container.RegisterInstance<IList<Log>>(this.GetFakeLogList());
+            //_container.RegisterInstance<IList<Log>>(this.GetFakeLogList());
 
-            _container.RegisterType<IRepository<Log>, StubRepository<Log>>();
+            //_container.RegisterType<IRepository<Log>, StubRepository<Log>>();
 
             var vmT = _container.Resolve<IToolbarAViewViewModel>();
 

@@ -79,7 +79,7 @@ namespace ModuleA
 
         private void AppendNewlyAddedLogsMehod()
         {
-            //if (maxLodId == 0) maxLodId = logRepository.Fetch().Max(x => x.LogId);
+            if (maxLodId == 0) maxLodId = logRepository.Fetch().Max(x => x.LogId);
 
             var logs = logRepository.Fetch().Where(x => x.LogId > maxLodId).OrderBy(x => x.LogId).ToList();
 

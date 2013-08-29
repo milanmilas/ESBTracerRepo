@@ -40,6 +40,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\Extensions\Microsoft\Entity Framework Tools\NuGet Packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="LinqKit">
+      <HintPath>..\..\..\packages\LinqKit.1.0\lib\35\LinqKit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\..\Libs\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
