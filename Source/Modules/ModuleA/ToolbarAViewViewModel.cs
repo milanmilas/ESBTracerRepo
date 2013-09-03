@@ -9,6 +9,8 @@ namespace ModuleA
     using System.Threading;
     using System.Timers;
 
+    using Microsoft.Practices.Prism.Interactivity.InteractionRequest;
+
     using ModuleA.Annotations;
 
     using Timer = System.Timers.Timer;
@@ -47,6 +49,15 @@ namespace ModuleA
 
         private bool recording;
 
+        private InteractionRequest<Confirmation> confirmCancelInteractionRequest;
+
+        public IInteractionRequest ConfirmCancelInteractionRequest {
+            get
+            {
+                return confirmCancelInteractionRequest;
+            }
+        }
+
         public bool Recording {
             get
             {
@@ -60,6 +71,8 @@ namespace ModuleA
 
         public DelegateCommand<object> StartStopRefreshingCommand { get; set; }
 
+        public DelegateCommand<object> PopUpCommand { get; set; }
+
         private Timer backbroudWorder = new Timer();
 
         public ToolbarAViewViewModel(IToolbarAView view)
@@ -71,6 +84,29 @@ namespace ModuleA
             RefreshSeconds = "3";
 
             StartStopRefreshingCommand = new DelegateCommand<object>(StartRecording);
+
+            PopUpCommand = new DelegateCommand<object>(PopUp);
+
+            confirmCancelInteractionRequest = new InteractionRequest<Confirmation>();
+        }
+
+        private void PopUp(object obj)
+        {
+            this.confirmCancelInteractionRequest.Raise(
+                new Confirmation
+                {
+                    Title = "Confirm",
+                    Content = "Do you want to continue?"
+                }
+,
+                confirmation =>
+                {
+                    if (confirmation.Confirmed)
+                    {
+                        
+                    }
+                });
+
         }
 
         private void StartRecording(object refreshTime)

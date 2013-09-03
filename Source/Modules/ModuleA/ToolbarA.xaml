@@ -5,9 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:inf="clr-namespace:ESBInfrastructureLibrary;assembly=ESBInfrastructureLibrary"
              xmlns:conv="clr-namespace:ModuleA.Converters"
+             xmlns:prism="http://www.codeplex.com/prism"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ir="clr-namespace:Microsoft.Practices.Prism.Interactivity.InteractionRequest;assembly=Microsoft.Practices.Prism.Interactivity"
+             xmlns:dialog="clr-namespace:ModuleA"
+
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="800">
+
+
     <UserControl.Resources>
+        <DataTemplate x:Key="ConfirmWindowTemplate">
+            <Grid MinWidth="250" MinHeight="100">
+                <TextBlock TextWrapping="Wrap" Grid.Row="0" Text="{Binding}"/>
+            </Grid>
+        </DataTemplate>
         <conv:SubstringValueFormater x:Key="SubstringConverter"/>
         <Style x:Key="RefreshingButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="5,5,5,5"></Setter>
@@ -21,6 +33,28 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
+
+    <!--<i:Interaction.Triggers>
+        <ir:InteractionRequestTrigger 
+            SourceObject="{Binding ConfirmCancelInteractionRequest}">
+
+            <ir:PopupChildWindowAction
+                  ContentTemplate="{StaticResource ConfirmWindowTemplate}"/>
+
+        </ir:InteractionRequestTrigger>
+    </i:Interaction.Triggers>-->
+
+
+    <!--<i:Interaction.Triggers>
+         Trigger listening for the "Raised" event on the source object (of type IInteractionRequest) 
+        <i:EventTrigger  EventName="Raised" SourceObject="{Binding ConfirmCancelInteractionRequest}">
+            <i:EventTrigger.Actions>
+                <dialog:ConfirmationWindowAction />
+            </i:EventTrigger.Actions>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>-->
+
+
     <StackPanel Orientation="Horizontal" >
         <StackPanel.Resources>
             <Style TargetType="{x:Type TextBox}">
@@ -63,6 +97,7 @@
             </TextBox.Style>
         </TextBox>
         <Button Content="Clear" Command="{x:Static inf:GlobalCommands.ClearLogsCommand}" />
+        <Button Content="PopUp" Command="{Binding PopUpCommand}" />
     </StackPanel>
 
 </UserControl>

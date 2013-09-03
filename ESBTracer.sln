@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{E4C158A9-A
 	ProjectSection(SolutionItems) = preProject
 		Source\Libs\EntityFramework.dll = Source\Libs\EntityFramework.dll
 		Source\Libs\Microsoft.Practices.Prism.dll = Source\Libs\Microsoft.Practices.Prism.dll
+		Source\Libs\Microsoft.Practices.Prism.Interactivity.dll = Source\Libs\Microsoft.Practices.Prism.Interactivity.dll
 		Source\Libs\Microsoft.Practices.Prism.UnityExtensions.dll = Source\Libs\Microsoft.Practices.Prism.UnityExtensions.dll
 		Source\Libs\Microsoft.Practices.ServiceLocation.dll = Source\Libs\Microsoft.Practices.ServiceLocation.dll
 		Source\Libs\Microsoft.Practices.Unity.dll = Source\Libs\Microsoft.Practices.Unity.dll
