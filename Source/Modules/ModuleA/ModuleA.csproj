@@ -40,9 +40,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\Extensions\Microsoft\Entity Framework Tools\NuGet Packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="LinqKit">
-      <HintPath>..\..\..\packages\LinqKit.1.0\lib\35\LinqKit.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\..\Libs\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
@@ -96,10 +94,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChildWindow.xaml.cs">
+      <DependentUpon>ChildWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ConfirmationWindow.xaml.cs">
       <DependentUpon>ConfirmationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ConfirmationWindowAction.cs" />
+    <Compile Include="IPopupDialogWindow.cs" />
+    <Compile Include="OpenPopupWindowAction.cs" />
     <Compile Include="Converters\SubstringValueFormater.cs" />
     <Compile Include="FilterAViewViewModel.cs" />
     <Compile Include="CompositeFilterService.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="IToolbarAViewViewModel.cs" />
     <Compile Include="LogViewModel.cs" />
     <Compile Include="ModuleAModule.cs" />
+    <Compile Include="PopupDialogResult.cs" />
     <Compile Include="PredicateBuilder.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -151,6 +154,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ConfirmationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

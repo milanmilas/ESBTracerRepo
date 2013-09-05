@@ -55,6 +55,7 @@
     </i:Interaction.Triggers>-->
 
 
+
     <StackPanel Orientation="Horizontal" >
         <StackPanel.Resources>
             <Style TargetType="{x:Type TextBox}">
@@ -97,7 +98,13 @@
             </TextBox.Style>
         </TextBox>
         <Button Content="Clear" Command="{x:Static inf:GlobalCommands.ClearLogsCommand}" />
-        <Button Content="PopUp" Command="{Binding PopUpCommand}" />
+        <Button Content="PopUp" Command="{Binding PopUpCommand}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <dialog:OpenPopupWindowAction  PopupDailogResultCommand="{Binding OnNavigationConfirmed}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
     </StackPanel>
 
 </UserControl>
