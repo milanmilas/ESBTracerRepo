@@ -85,29 +85,29 @@ namespace ModuleA
 
             StartStopRefreshingCommand = new DelegateCommand<object>(StartRecording);
 
-            PopUpCommand = new DelegateCommand<object>(PopUp);
+            //PopUpCommand = new DelegateCommand<object>(PopUp);
 
             confirmCancelInteractionRequest = new InteractionRequest<Confirmation>();
         }
 
-        private void PopUp(object obj)
-        {
-            this.confirmCancelInteractionRequest.Raise(
-                new Confirmation
-                {
-                    Title = "Confirm",
-                    Content = "Do you want to continue?"
-                }
-,
-                confirmation =>
-                {
-                    if (confirmation.Confirmed)
-                    {
+//        private void PopUp(object obj)
+//        {
+//            this.confirmCancelInteractionRequest.Raise(
+//                new Confirmation
+//                {
+//                    Title = "Confirm",
+//                    Content = "Do you want to continue?"
+//                }
+//,
+//                confirmation =>
+//                {
+//                    if (confirmation.Confirmed)
+//                    {
                         
-                    }
-                });
+//                    }
+//                });
 
-        }
+//        }
 
         private void StartRecording(object refreshTime)
         {

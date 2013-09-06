@@ -18,8 +18,11 @@ namespace PrismDashboard
     {
         protected override System.Windows.DependencyObject CreateShell()
         {
-            Container.RegisterInstance<IShell>(new Shell());
-            return Container.Resolve<Shell>();
+            Shell shell = new Shell();
+            Container.RegisterInstance<IShell>(shell);
+            return shell;
+
+
         }
 
         protected override void InitializeShell()

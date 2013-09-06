@@ -40,13 +40,20 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\Extensions\Microsoft\Entity Framework Tools\NuGet Packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="LinqKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\..\Libs\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Prism.Interactivity, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Libs\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\..\Libs\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -94,35 +101,51 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChildWindow.xaml.cs">
+    <Compile Include="Utilities\PopUp\ChildWindow.xaml.cs">
       <DependentUpon>ChildWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConfirmationWindow.xaml.cs">
       <DependentUpon>ConfirmationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IPopupDialogWindow.cs" />
-    <Compile Include="OpenPopupWindowAction.cs" />
+    <Compile Include="Utilities\PopUp\IPopupDialogWindow.cs" />
+    <Compile Include="Utilities\PopUp\OpenPopupWindowAction.cs" />
     <Compile Include="Converters\SubstringValueFormater.cs" />
-    <Compile Include="FilterAViewViewModel.cs" />
-    <Compile Include="CompositeFilterService.cs" />
-    <Compile Include="ContentA.xaml.cs">
-      <DependentUpon>ContentA.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ContentAViewViewModel.cs" />
-    <Compile Include="IFilterA.cs" />
-    <Compile Include="FilterA.xaml.cs">
+    <Compile Include="Views\FilterAViewViewModel.cs">
       <DependentUpon>FilterA.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ICompositeFilterService.cs" />
-    <Compile Include="IContentAViewModel.cs" />
-    <Compile Include="IContentAView.cs" />
-    <Compile Include="IFilterAViewViewModel.cs" />
-    <Compile Include="IToolbarAView.cs" />
-    <Compile Include="IToolbarAViewViewModel.cs" />
+    <Compile Include="Services\CompositeFilterService.cs" />
+    <Compile Include="Views\ContentA.xaml.cs">
+      <DependentUpon>ContentA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentAViewViewModel.cs">
+      <DependentUpon>ContentA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IFilterA.cs">
+      <DependentUpon>FilterA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FilterA.xaml.cs">
+      <DependentUpon>FilterA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ICompositeFilterService.cs" />
+    <Compile Include="Views\IContentAViewModel.cs">
+      <DependentUpon>ContentA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IContentAView.cs">
+      <DependentUpon>ContentA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IFilterAViewViewModel.cs">
+      <DependentUpon>FilterA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IToolbarAView.cs">
+      <DependentUpon>ToolbarA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IToolbarAViewViewModel.cs">
+      <DependentUpon>ToolbarA.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LogViewModel.cs" />
     <Compile Include="ModuleAModule.cs" />
-    <Compile Include="PopupDialogResult.cs" />
-    <Compile Include="PredicateBuilder.cs" />
+    <Compile Include="Utilities\PopUp\PopupDialogResult.cs" />
+    <Compile Include="Utilities\Predicate\PredicateBuilder.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -137,10 +160,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ToolbarA.xaml.cs">
+    <Compile Include="Views\ToolbarA.xaml.cs">
       <DependentUpon>ToolbarA.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ToolbarAViewViewModel.cs" />
+    <Compile Include="Views\ToolbarAViewViewModel.cs">
+      <DependentUpon>ToolbarA.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -154,7 +179,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ChildWindow.xaml">
+    <Page Include="Utilities\PopUp\ChildWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,15 +187,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ContentA.xaml">
+    <Page Include="Views\ContentA.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FilterA.xaml">
+    <Page Include="Views\FilterA.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ToolbarA.xaml">
+    <Page Include="Views\ToolbarA.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,6 +210,7 @@
       <Name>ESBTracerDataAccess</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

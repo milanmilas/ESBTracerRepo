@@ -16,6 +16,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{E4C158A9-AD8E-4AC5-9C19-F31FF024EB03}"
 	ProjectSection(SolutionItems) = preProject
 		Source\Libs\EntityFramework.dll = Source\Libs\EntityFramework.dll
+		Source\Libs\LinqKit.dll = Source\Libs\LinqKit.dll
+		Source\Libs\Microsoft.Expression.Interactions.dll = Source\Libs\Microsoft.Expression.Interactions.dll
 		Source\Libs\Microsoft.Practices.Prism.dll = Source\Libs\Microsoft.Practices.Prism.dll
 		Source\Libs\Microsoft.Practices.Prism.Interactivity.dll = Source\Libs\Microsoft.Practices.Prism.Interactivity.dll
 		Source\Libs\Microsoft.Practices.Prism.UnityExtensions.dll = Source\Libs\Microsoft.Practices.Prism.UnityExtensions.dll
