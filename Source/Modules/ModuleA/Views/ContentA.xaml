@@ -3,16 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:dialog="clr-namespace:ModuleA"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <DataGrid ItemsSource="{Binding Logs}" FontSize="12" RowHeight="20" >
+        <DataGrid x:Name="se" ItemsSource="{Binding Logs}" FontSize="12" RowHeight="20" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridRow}">
                     <Setter Property ="Background" Value="LimeGreen"/>
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding LogMessage}" Value="Exception has occured">
                             <Setter Property = "Background" Value="OrangeRed"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding LogMessage}" Value="Rejected by HealthRoster">
+                            <Setter Property = "Background" Value="Orange"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding LogMessage}" Value="HealthRoster  Error">
+                            <Setter Property = "Background" Value="Orange"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding TagData}" Value="1">
                             <DataTrigger.EnterActions>
@@ -65,6 +73,13 @@
                     </Setter>
                 </Style>
             </DataGrid.CellStyle>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <!--<i:InvokeCommandAction Command="{Binding CommandShowLog}" />-->
+                    <dialog:OpenPopupWindowAction  PopupDailogResultCommand="{Binding OnNavigationConfirmed}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
         </DataGrid>
     </Grid>
 </UserControl>
