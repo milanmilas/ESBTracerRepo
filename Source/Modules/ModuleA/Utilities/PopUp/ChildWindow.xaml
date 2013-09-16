@@ -4,15 +4,16 @@
         xmlns:popup="clr-namespace:ModuleA"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
-        Title="ChildWindow" Height="300" Width="300" Name="popUpWindow">
+        xmlns:usr="clr-namespace:ModuleA.UserControls"
+        Title="ChildWindow" MinHeight="600" Width="500" Name="popUpWindow">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30">
-        This is a child window <LineBreak/> launched from the <LineBreak/>main window
-        </TextBlock>
+        <ScrollViewer  HorizontalScrollBarVisibility="Disabled">
+            <usr:LogDetailsInfo/>
+        </ScrollViewer>
         <StackPanel Grid.Row="1" Background="#FFA6A6A6">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 

@@ -23,7 +23,7 @@ namespace ModuleA
         public bool DateFilter
         {
             get { return dateFilter; }
-            set { dateFilter = value; this.OnPropertyChanged("DateFilter"); }
+            set { dateFilter = value; this.OnPropertyChanged(); }
         }
 
         private DateTime dateFrom;
@@ -31,7 +31,7 @@ namespace ModuleA
         public DateTime DateFrom
         {
             get { return dateFrom; }
-            set { dateFrom = value; this.OnPropertyChanged("DateFrom"); }
+            set { dateFrom = value; this.OnPropertyChanged(); }
         }
 
 
@@ -40,7 +40,7 @@ namespace ModuleA
         public DateTime DateTo
         {
             get { return dateTo; }
-            set { dateTo = value; this.OnPropertyChanged("DateTo"); }
+            set { dateTo = value; this.OnPropertyChanged(); }
         }
 
         private bool exceptionFilter;
@@ -48,7 +48,7 @@ namespace ModuleA
         public bool ExceptionFilter
         {
             get { return exceptionFilter; }
-            set { exceptionFilter = value; this.OnPropertyChanged("ExceptionFilter"); }
+            set { exceptionFilter = value; this.OnPropertyChanged(); }
         }
         
 
@@ -96,7 +96,7 @@ namespace ModuleA
             System.Linq.Expressions.Expression<Func<Log, bool>> func = l => true;
             if (dateFilter)
             {
-                System.Linq.Expressions.Expression<Func<Log, bool>> func2 = l => l.DatePersisted >= this.DateFrom && l.DatePersisted <= this.DateFrom;
+                System.Linq.Expressions.Expression<Func<Log, bool>> func2 = l => l.DatePersisted >= this.DateFrom && l.DatePersisted <= this.DateTo;
 
                 func = PredicateBuilder.And(func, func2);
             }

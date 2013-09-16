@@ -23,6 +23,7 @@ namespace ModuleA
             popup.Owner =  PlacementTarget ?? (Window)ServiceLocator.Current.GetInstance<IShell>();
 
             popup.DialogResultCommand = PopupDailogResultCommand;
+            popup.DataContext = SourceItem;
             popup.Show();
         }
 
@@ -44,6 +45,21 @@ namespace ModuleA
 
         public static readonly DependencyProperty PopupDailogResultCommandProperty =
             DependencyProperty.Register("PopupDailogResultCommand", typeof(ICommand), typeof(OpenPopupWindowAction), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty SourceItemProperty =
+            DependencyProperty.Register("SourceItem", typeof(LogViewModel), typeof(OpenPopupWindowAction), new PropertyMetadata(default(LogViewModel)));
+
+        public LogViewModel SourceItem
+        {
+            get
+            {
+                return (LogViewModel)GetValue(SourceItemProperty);
+            }
+            set
+            {
+                SetValue(SourceItemProperty, value);
+            }
+        }
     }
 
 }

@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="ModuleA.UserControls.LogDetailsInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+        <StackPanel MaxWidth="1400" CanVerticallyScroll="True">
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="TextWrapping" Value="Wrap"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBox Text="RouteId:" Background="DeepSkyBlue"></TextBox>
+            <TextBox Text="{Binding Path=RouteId}"></TextBox>
+            <TextBox Text="Header:" Background="Yellow"></TextBox>
+            <TextBox Text="{Binding Path=Header}" MaxHeight="500"></TextBox>
+            <TextBox Text="Body:" Background="PaleGreen"></TextBox>
+            <TextBox Text="{Binding Path=Body}"></TextBox>
+            <TextBox Text="ExceptionMessage:" Background="Orange"></TextBox>
+            <TextBox Text="{Binding Path=ExceptionMessage}"></TextBox>
+            <TextBox Text="ExceptionStackTrace:" Background="OrangeRed"></TextBox>
+            <TextBox Text="{Binding Path=ExceptionStackTrace}"></TextBox>
+        </StackPanel>
+</UserControl>

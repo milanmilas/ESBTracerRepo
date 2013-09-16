@@ -4,11 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-             xmlns:dialog="clr-namespace:ModuleA"
+             xmlns:dialog="clr-namespace:ModuleA" 
+             xmlns:usr="clr-namespace:ModuleA.UserControls" xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <DataGrid x:Name="se" ItemsSource="{Binding Logs}" FontSize="12" RowHeight="20" >
+        <DataGrid x:Name="se" ItemsSource="{Binding Logs}" FontSize="12" RowHeight="20" SelectionMode="Single">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridRow}">
                     <Setter Property ="Background" Value="LimeGreen"/>
@@ -52,23 +53,7 @@
                     <Setter Property="ToolTipService.ShowDuration" Value="12000"/>
                     <Setter Property="ToolTip">
                         <Setter.Value>
-                            <StackPanel MaxWidth="1400" CanVerticallyScroll="True">
-                                <StackPanel.Resources>
-                                    <Style TargetType="TextBox">
-                                        <Setter Property="TextWrapping" Value="Wrap"></Setter>
-                                    </Style>
-                                </StackPanel.Resources>
-                                <TextBox Text="RouteId:" Background="DeepSkyBlue"></TextBox>
-                                <TextBox Text="{Binding Path=RouteId}"></TextBox>
-                                <TextBox Text="Header:" Background="Yellow"></TextBox>
-                                <TextBox Text="{Binding Path=Header}" MaxHeight="500"></TextBox>
-                                <TextBox Text="Body:" Background="PaleGreen"></TextBox>
-                                <TextBox Text="{Binding Path=Body}"></TextBox>
-                                <TextBox Text="ExceptionMessage:" Background="Orange"></TextBox>
-                                <TextBox Text="{Binding Path=ExceptionMessage}"></TextBox>
-                                <TextBox Text="ExceptionStackTrace:" Background="OrangeRed"></TextBox>
-                                <TextBox Text="{Binding Path=ExceptionStackTrace}"></TextBox>
-                            </StackPanel>
+                            <usr:LogDetailsInfo/>
                         </Setter.Value>
                     </Setter>
                 </Style>
@@ -76,7 +61,7 @@
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
                     <!--<i:InvokeCommandAction Command="{Binding CommandShowLog}" />-->
-                    <dialog:OpenPopupWindowAction  PopupDailogResultCommand="{Binding OnNavigationConfirmed}"/>
+                    <dialog:OpenPopupWindowAction SourceItem="{Binding  RelativeSource={RelativeSource AncestorType={x:Type DataGrid}},Path=SelectedItem}" PopupDailogResultCommand="{Binding OnNavigationConfirmed}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
 
