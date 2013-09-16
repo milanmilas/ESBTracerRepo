@@ -102,7 +102,7 @@ namespace ModuleA
             }
             if (exceptionFilter)
             {
-                System.Linq.Expressions.Expression<Func<Log, bool>> func2 = l => l.LogMessage != null && l.LogMessage.Equals("Exception has occured");
+                System.Linq.Expressions.Expression<Func<Log, bool>> func2 = l => l.LogMessage != null && (l.LogMessage.Equals("Exception has occured") || l.LogMessage.Equals("Rejected by HealthRoster") || l.LogMessage.Equals("HealthRoster  Error"));
 
                 func = PredicateBuilder.And(func, func2);
             }
