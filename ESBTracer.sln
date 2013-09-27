@@ -23,11 +23,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{E4C158A9-A
 		Source\Libs\Microsoft.Practices.Prism.UnityExtensions.dll = Source\Libs\Microsoft.Practices.Prism.UnityExtensions.dll
 		Source\Libs\Microsoft.Practices.ServiceLocation.dll = Source\Libs\Microsoft.Practices.ServiceLocation.dll
 		Source\Libs\Microsoft.Practices.Unity.dll = Source\Libs\Microsoft.Practices.Unity.dll
+		Source\Libs\nunit.framework.dll = Source\Libs\nunit.framework.dll
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{92F1C2BB-FFE8-4580-8481-75281C30A140}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.ModuleA.Test", "Module.ModuleA.Test\Module.ModuleA.Test.csproj", "{F22447F4-B934-4D75-B397-06A2ABFBF07E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESBTracerDataAccess.Test", "ESBTracerDataAccess.Test\ESBTracerDataAccess.Test.csproj", "{9DBDED59-8DF9-4823-A56B-F7C63CAE0CA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +58,10 @@ Global
 		{F22447F4-B934-4D75-B397-06A2ABFBF07E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F22447F4-B934-4D75-B397-06A2ABFBF07E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F22447F4-B934-4D75-B397-06A2ABFBF07E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DBDED59-8DF9-4823-A56B-F7C63CAE0CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DBDED59-8DF9-4823-A56B-F7C63CAE0CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DBDED59-8DF9-4823-A56B-F7C63CAE0CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DBDED59-8DF9-4823-A56B-F7C63CAE0CA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +69,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B074B194-5EE7-4F9E-B871-5C1B3BCF6536} = {F6686D7B-9099-4974-8BC8-D965FD4B8148}
 		{F22447F4-B934-4D75-B397-06A2ABFBF07E} = {92F1C2BB-FFE8-4580-8481-75281C30A140}
+		{9DBDED59-8DF9-4823-A56B-F7C63CAE0CA2} = {92F1C2BB-FFE8-4580-8481-75281C30A140}
 	EndGlobalSection
 EndGlobal

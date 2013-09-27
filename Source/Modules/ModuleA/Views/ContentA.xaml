@@ -34,16 +34,6 @@
                             </BeginStoryboard>
                             </DataTrigger.EnterActions>
                         </DataTrigger>
-                        <!--<EventTrigger RoutedEvent="Loaded">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation Storyboard.TargetProperty=
-                              "(DataGridRow.Background).(SolidColorBrush.Color)" 
-                                             Duration="00:00:01" 
-                                             From="Transparent"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>-->
                     </Style.Triggers>
                 </Style>
             </DataGrid.Resources>

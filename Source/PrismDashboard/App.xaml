@@ -8,5 +8,6 @@
                 <ResourceDictionary Source="/ReuxablesLegacy;component/mercury.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>-->
+            <ResourceDictionary Source="Themes\ExpressionDark.xaml"/>
     </Application.Resources>
 </Application>
