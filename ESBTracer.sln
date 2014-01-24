@@ -24,6 +24,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{E4C158A9-A
 		Source\Libs\Microsoft.Practices.ServiceLocation.dll = Source\Libs\Microsoft.Practices.ServiceLocation.dll
 		Source\Libs\Microsoft.Practices.Unity.dll = Source\Libs\Microsoft.Practices.Unity.dll
 		Source\Libs\nunit.framework.dll = Source\Libs\nunit.framework.dll
+		Source\Libs\WPFToolkit.dll = Source\Libs\WPFToolkit.dll
+		Source\Libs\Xceed.Wpf.AvalonDock.dll = Source\Libs\Xceed.Wpf.AvalonDock.dll
+		Source\Libs\Xceed.Wpf.AvalonDock.Themes.Aero.dll = Source\Libs\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+		Source\Libs\Xceed.Wpf.AvalonDock.Themes.Metro.dll = Source\Libs\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+		Source\Libs\Xceed.Wpf.AvalonDock.Themes.VS2010.dll = Source\Libs\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+		Source\Libs\Xceed.Wpf.DataGrid.dll = Source\Libs\Xceed.Wpf.DataGrid.dll
+		Source\Libs\Xceed.Wpf.Toolkit.dll = Source\Libs\Xceed.Wpf.Toolkit.dll
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{92F1C2BB-FFE8-4580-8481-75281C30A140}"

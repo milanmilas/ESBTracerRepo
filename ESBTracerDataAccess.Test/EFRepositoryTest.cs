@@ -10,6 +10,9 @@ namespace ESBTracerDataAccess.Test
     [TestFixture]
     class EFRepositoryTest
     {
-		
+        [Test]
+        public void TestMethod1()
+        {
+        }
     }
 }
